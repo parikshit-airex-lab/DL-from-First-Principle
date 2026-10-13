@@ -1,0 +1,22 @@
+# Wider CNN on CIFAR-10 with a cosine learning-rate schedule.
+model:
+  name: cnn
+  params:
+    in_channels: 3
+    num_classes: 10
+    channels: [64, 128, 256]
+    kernel_size: 3
+    use_batchnorm: true
+    dropout: 0.25
+    fc_hidden: 256
+
+data:
+  name: cifar10
+  batch_size: 128
+
+train:
+  epochs: 20
+  optimizer: adam
+  lr: 1.0e-3
+  weight_decay: 5.0e-4
+  scheduler: cosine

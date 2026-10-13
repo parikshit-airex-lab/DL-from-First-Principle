@@ -1,0 +1,22 @@
+# Character-level language model on Tiny Shakespeare with an LSTM.
+# Same shape as rnn_charlm.yaml for a like-for-like RNN vs LSTM comparison.
+model:
+  name: lstm
+  params:
+    embed_dim: 128
+    hidden_size: 256
+    num_layers: 2
+    dropout: 0.1
+    mode: lm
+
+data:
+  name: charlm
+  batch_size: 64
+  params:
+    block_size: 128
+
+train:
+  epochs: 10
+  optimizer: adam
+  lr: 2.0e-3
+  grad_clip: 1.0

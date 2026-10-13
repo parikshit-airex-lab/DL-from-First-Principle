@@ -1,0 +1,24 @@
+# Character-level language model on Tiny Shakespeare with a plain (Elman) RNN.
+# Same shape as lstm_charlm.yaml for a like-for-like RNN vs LSTM comparison.
+model:
+  name: rnn
+  params:
+    embed_dim: 128
+    hidden_size: 256
+    num_layers: 2
+    dropout: 0.1
+    mode: lm
+
+data:
+  name: charlm
+  batch_size: 64
+  params:
+    block_size: 128
+
+train:
+  epochs: 10
+  optimizer: adam
+  lr: 2.0e-3
+  # Clipping matters most for the plain RNN: without gating, gradients through
+  # 128 tanh steps explode easily, and one huge step can wreck training.
+  grad_clip: 1.0

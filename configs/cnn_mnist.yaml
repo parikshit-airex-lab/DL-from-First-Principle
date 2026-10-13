@@ -1,0 +1,20 @@
+# Small CNN on MNIST. Should exceed 99% validation accuracy in 5 epochs.
+model:
+  name: cnn
+  params:
+    in_channels: 1
+    num_classes: 10
+    channels: [32, 64]
+    kernel_size: 3
+    use_batchnorm: true
+    dropout: 0.25
+    fc_hidden: 256
+
+data:
+  name: mnist
+  batch_size: 128
+
+train:
+  epochs: 5
+  optimizer: adam
+  lr: 1.0e-3

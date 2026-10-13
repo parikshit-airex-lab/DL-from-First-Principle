@@ -1,0 +1,17 @@
+# Runtime + dev dependencies for dl-from-first-principles.
+#
+# The project environment is `dlfp_venv/` in the repo root, managed with `uv`:
+#     uv venv dlfp_venv && source dlfp_venv/bin/activate
+#     uv pip install -r requirements.txt && uv pip install -e .
+#
+# The default PyPI torch wheel on Linux is a CUDA build. If you need a specific
+# CUDA (or CPU-only) build, install torch first with the matching index URL from
+# https://pytorch.org/get-started/locally/, e.g.
+#     uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
+torch>=2.1
+torchvision>=0.16
+numpy>=1.24
+pyyaml>=6.0
+tqdm>=4.65
+requests>=2.31
+pytest>=7.4

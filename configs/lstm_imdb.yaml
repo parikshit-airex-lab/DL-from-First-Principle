@@ -1,0 +1,26 @@
+# LSTM sentiment classifier on IMDB (padded variable-length sequences).
+model:
+  name: lstm
+  params:
+    embed_dim: 128
+    hidden_size: 256
+    num_layers: 1
+    dropout: 0.3
+    mode: classification
+    num_classes: 2
+
+data:
+  name: imdb
+  batch_size: 64
+  params:
+    max_len: 256
+    min_freq: 2
+    max_size: 20000
+
+train:
+  epochs: 5
+  optimizer: adam
+  lr: 1.0e-3
+  grad_clip: 1.0
+  monitor: val_acc
+  monitor_mode: max

@@ -1,0 +1,26 @@
+# Shared defaults. Every experiment config is merged on top of this file, and
+# CLI overrides (--section.key value) are merged on top of both.
+seed: 42
+device: auto
+output_dir: runs
+deterministic: true
+
+data:
+  root: ./data
+  num_workers: 4
+  val_split: 0.1
+
+train:
+  epochs: 10
+  optimizer: adam
+  lr: 1.0e-3
+  weight_decay: 0.0
+  betas: [0.9, 0.999]
+  momentum: 0.9
+  grad_clip: 1.0
+  scheduler: null
+  warmup_steps: 0
+  log_interval: 50
+  early_stopping_patience: null
+  monitor: val_loss
+  monitor_mode: min
